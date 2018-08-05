@@ -1,9 +1,10 @@
 package com.semiceri.sdvx.services;
 
-import com.google.common.collect.Lists;
+import com.semiceri.sdvx.components.DataLoader;
 import com.semiceri.sdvx.model.Song;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,16 +12,18 @@ import java.util.stream.Collectors;
 @Service
 public class SongService {
 
-    private static List<Song> SONG_LIST = new ArrayList<>();
-    
-    static {
-        SONG_LIST.add(new Song("Boss Rush", Lists.newArrayList(6,12,15,18)));
-        SONG_LIST.add(new Song("Royal Judgement", Lists.newArrayList(6,11,14,17)));
-        SONG_LIST.add(new Song("I", Lists.newArrayList(8,15,18,20)));
-        SONG_LIST.add(new Song("Beast Bass Bomb", Lists.newArrayList(6,10,15,18)));
-        SONG_LIST.add(new Song("TWO-TORIAL", Lists.newArrayList(7,14,17,19)));
-        SONG_LIST.add(new Song("Chrono Diver -PENDULUMs-", Lists.newArrayList(7,14,17,19)));
+    DataLoader loader;
+    public SongService(DataLoader loader){
+        this.loader = loader;
     }
+
+    @PostConstruct
+    private void init(){
+        SONG_LIST = loader.LoadData();
+    }
+
+    private  List<Song> SONG_LIST = new ArrayList<>();
+
 
     public List<Song> findAllSongs() {
         return SONG_LIST;
