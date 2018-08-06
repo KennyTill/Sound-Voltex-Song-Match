@@ -3,10 +3,10 @@ package com.semiceri.sdvx.controllers;
 import com.semiceri.sdvx.model.Song;
 import com.semiceri.sdvx.services.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
@@ -27,8 +27,23 @@ public class SongController {
                               @RequestParam Integer playerTwoEnd) {
         return songService.findMatches(playerOneStart, playerOneEnd, playerTwoStart, playerTwoEnd);
     }
-    @GetMapping("/findAll")
-    public List<Song> findAllSongs(){
+
+    @PostMapping(value = "/findMatches", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public List<Song> findMatches(@RequestBody MultiValueMap<String, String> body){
+
+        Integer playerOneStart = Integer.parseInt(body.getFirst("playerOneStart"));
+        Integer playerTwoStart = Integer.parseInt(body.getFirst("playerTwoStart"));
+        Integer playerOneEnd = Integer.parseInt(body.getFirst("playerOneEnd"));
+        Integer playerTwoEnd = Integer.parseInt(body.getFirst("playerTwoEnd"));
+        List<Song> songs = songService.findMatches(playerOneStart, playerOneEnd, playerTwoStart, playerTwoEnd);
+        return songs;
+
+    }
+
+
+//    @GetMapping("/findAll")
+    @PostMapping("/findAll")
+    public @ResponseBody List<Song> findAllSongs(){
        return songService.findAllSongs();
     }
 
