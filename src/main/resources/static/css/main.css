@@ -1,17 +1,124 @@
-.non-selectable{
+.non-selectable {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
     -khtml-user-select: none; /* Konqueror HTML */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                     supported by Chrome and Opera */
 }
 
-.custom-button{
+.custom-button {
     width: 100px;
     height: 25px;
-    background-color: dodgerblue;
-    color: white;
+    padding: 5px 10px 5px 10px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 15px;
     text-align: center;
+
 }
+
+.custom-select{
+    height: 50px;
+    width: 75px;
+}
+
+.player-one-align{
+    padding: 50px;
+    background-color: white;
+    margin-top: 10px;
+    color: #000;
+}
+
+.player-two-align{
+    padding: 50px;
+    margin-top:10px;
+    margin-left: 20px;
+    background-color: white;
+    color: #000;
+}
+
+.search-container{
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.text-shadow{
+    text-shadow: 0 1px 3px rgba(0,0,0,.5);
+
+}
+.box-shadow{
+    box-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+.small-grey{
+    color:#999999;
+    font-size: 9pt;
+    padding: 5px 0px 5px 0px;
+    margin:0px;
+}
+
+.custom-header{
+    margin-top: 15px;
+}
+
+.purple{
+    color: #7728ff;
+}
+
+.yellow{
+    color: #f2ff30;
+}
+
+.red{
+    color: #ff2d6a;
+}
+
+.grey{
+    color:#eeeeee;
+}
+
+
+.blue {
+    background-color: #63D1F4;
+}
+
+th {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    padding: 0px 5px;
+    font-size: 16pt;
+}
+
+tr{
+    border-color:white;
+    border-bottom: 1px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-style: solid;
+}
+
+@font-face {
+    font-family: 'airstrip_oneregular';
+    src: url('fonts/airone-webfont.woff2') format('woff2'),
+    url('fonts/airone-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.player-toggle {
+    font-size: 25pt;
+    margin: 0px;
+    padding: 0px;
+}
+
+.custom-font{
+    font-family: 'airstrip_oneregular', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+
+

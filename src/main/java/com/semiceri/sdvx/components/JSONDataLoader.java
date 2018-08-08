@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class FileDataLoader implements DataLoader {
+public class JSONDataLoader implements DataLoader {
     @Override
     public List<Song> LoadData() {
         List<Song> loadedList = new ArrayList<>();
