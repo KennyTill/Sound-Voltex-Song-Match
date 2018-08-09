@@ -4,10 +4,7 @@ import com.semiceri.sdvx.model.Song;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +21,10 @@ public class CSVDataLoader implements DataLoader {
         BufferedReader br = null;
         String line = "";
         String CSVSplitBy = ",";
-        URL url = this.getClass().getClassLoader().getResource(csv);
+        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(csv);
 
         try {
-            br = new BufferedReader(new FileReader(url.getFile()));
+            br = new BufferedReader(new InputStreamReader(inputStream));
 
             while ((line = br.readLine()) != null) {
                 String[] songString = line.split(CSVSplitBy);
