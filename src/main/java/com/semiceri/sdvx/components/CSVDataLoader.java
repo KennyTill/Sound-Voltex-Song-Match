@@ -19,7 +19,7 @@ public class CSVDataLoader implements DataLoader {
     @Override
     public List<Song> LoadData() {
         List<Song> loadedList = new ArrayList<>();
-        String csv = "songs.csv";
+        String csv = "static/csv/songs.csv";
 
         BufferedReader br = null;
         String line = "";
