@@ -40,7 +40,6 @@ public class SongController {
     }
 
 
-//    @GetMapping("/findAll")
     @PostMapping("/findAll")
     public @ResponseBody List<Song> findAllSongs(){
        return songService.findAllSongs();
