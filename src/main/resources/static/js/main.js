@@ -1,6 +1,7 @@
 $(document).ready(function(){
     $("#results-table").hide();
     $("#no-match-div").hide();
+    $("#results-table").tablesorter();
 });
 
 //Search Functionality
@@ -34,6 +35,8 @@ $("#btn-search").click(function (e) {
                 html+= "</tr>";
                 $("#results-table").append(html);
             });
+            $("#results-table").trigger("update");
+
         }
     });
 });

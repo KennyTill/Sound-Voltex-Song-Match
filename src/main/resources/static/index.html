@@ -148,10 +148,10 @@
         <submit id="btn-search" class="medium-grey custom-button non-selectable box-shadow custom-font">Search</submit>
     </form>
     <hr>
-    <div class="text-shadow" id="div-matches">
+    <div class="text-shadow matches-content" id="div-matches">
         <div id="no-match-div"><span class="">No matches found</span></div>
-        <table id="results-table">
-            <thead>
+        <table id="results-table" class="table-striped">
+            <thead class="thead-light">
             <tr class="custom-font non-selectable">
                 <th id="th-name">Name</th>
                 <th id="th-nov" class="purple">NOV</th>
@@ -167,9 +167,6 @@
     </div>
 </div>
 
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
@@ -179,6 +176,7 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 <script src="js/main.js"></script>
+<script src="js/jquery.tablesorter.min.js"></script>
 </body>
 </html>
 
