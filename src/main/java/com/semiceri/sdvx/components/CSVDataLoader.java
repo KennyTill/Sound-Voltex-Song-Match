@@ -6,7 +6,10 @@ import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Primary
@@ -20,24 +23,21 @@ public class CSVDataLoader implements DataLoader {
     @Override
     public List<Song> loadData() {
 
-        List<Song> loadedList = new ArrayList<>();
-        
         try (InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(CSV);
-                BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
+             BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
 
-            String line = "";
+            List<Song> loadedList = br.lines().map(x -> x.split(DELIMITER))
+                    .map(songstr -> {
+                        List<Integer> difficulties = Arrays.stream(songstr)
+                                .skip(1)
+                                .map(Integer::parseInt)
+                                .collect(Collectors.toList());
+                        Song song = new Song(songstr[0], difficulties);
+                        return song;
+                    }).collect(Collectors.toList());
 
-            while ((line = br.readLine()) != null) {
-                String[] songString = line.split(DELIMITER);
-                List<Integer> difficulties = new ArrayList<>();
-                difficulties.add(Integer.parseInt(songString[1]));
-                difficulties.add(Integer.parseInt(songString[2]));
-                difficulties.add(Integer.parseInt(songString[3]));
-                difficulties.add(Integer.parseInt(songString[4]));
-                Song song = new Song(songString[0], difficulties);
-                loadedList.add(song);
+            return loadedList;
 
-            }
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {
@@ -45,8 +45,6 @@ public class CSVDataLoader implements DataLoader {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-
-        return loadedList;
+        return Collections.emptyList();
     }
-
 }
