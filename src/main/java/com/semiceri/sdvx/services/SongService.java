@@ -20,12 +20,12 @@ public class SongService {
 
     @PostConstruct
     private void init() {
-        songList = loader.LoadData();
+        this.songList = loader.LoadData();
     }
 
 
     public List<Song> findAllSongs() {
-        return songList;
+        return this.songList;
     }
 
 
@@ -33,7 +33,7 @@ public class SongService {
                                   Integer playerOneEnd,
                                   Integer playerTwoStart,
                                   Integer playerTwoEnd) {
-        List<Song> sublist = songList
+        List<Song> sublist = this.songList
                 .stream().filter(x -> x.getDifficulties().stream()
                         .anyMatch(value -> value >= playerOneStart && value <= playerOneEnd)).collect(Collectors.toList());
         sublist = sublist.stream().filter(x -> x.getDifficulties().stream()
