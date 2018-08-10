@@ -27,7 +27,6 @@ public class SongController {
 
         List<Song> returnList = songService.findMatches(playerOneStart, playerOneEnd, playerTwoStart, playerTwoEnd);
         return returnList;
-
     }
 
 
@@ -42,7 +41,6 @@ public class SongController {
         List<Song> songs = songService.findMatches(playerOneStart, playerOneEnd, playerTwoStart, playerTwoEnd);
 
         return songs;
-
     }
 
 
