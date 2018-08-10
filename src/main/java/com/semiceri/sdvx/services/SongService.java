@@ -2,6 +2,7 @@ package com.semiceri.sdvx.services;
 
 import com.semiceri.sdvx.components.DataLoader;
 import com.semiceri.sdvx.model.Song;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class SongService {
 
+    @NonNull
     private final DataLoader loader;
     private List<Song> songList = new ArrayList<>();
 
@@ -33,7 +35,7 @@ public class SongService {
                                   Integer playerOneEnd,
                                   Integer playerTwoStart,
                                   Integer playerTwoEnd) {
-        
+
         List<Song> sublist = this.songList.stream()
                 .filter(x -> x.getDifficulties()
                         .stream()
