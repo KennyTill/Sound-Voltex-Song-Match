@@ -33,11 +33,19 @@ public class SongService {
                                   Integer playerOneEnd,
                                   Integer playerTwoStart,
                                   Integer playerTwoEnd) {
-        List<Song> sublist = this.songList
-                .stream().filter(x -> x.getDifficulties().stream()
-                        .anyMatch(value -> value >= playerOneStart && value <= playerOneEnd)).collect(Collectors.toList());
-        sublist = sublist.stream().filter(x -> x.getDifficulties().stream()
-                .anyMatch(value -> value >= playerTwoStart && value <= playerTwoEnd)).collect(Collectors.toList());
+        
+        List<Song> sublist = this.songList.stream()
+                .filter(x -> x.getDifficulties()
+                        .stream()
+                        .anyMatch(value -> value >= playerOneStart && value <= playerOneEnd))
+                .collect(Collectors.toList());
+
+        sublist = sublist.stream()
+                .filter(x -> x.getDifficulties()
+                        .stream()
+                        .anyMatch(value -> value >= playerTwoStart && value <= playerTwoEnd))
+                .collect(Collectors.toList());
+
         return sublist;
     }
 
