@@ -38,11 +38,7 @@ public class CSVDataLoader implements DataLoader {
 
             return loadedList;
 
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
         } catch (IOException ex) {
-            ex.printStackTrace();
-        } catch (Exception ex) {
             ex.printStackTrace();
         }
         return Collections.emptyList();
