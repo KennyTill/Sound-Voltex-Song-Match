@@ -15,30 +15,30 @@ import java.util.stream.Collectors;
 public class SongService {
 
     private final DataLoader loader;
-    private  List<Song> SONG_LIST = new ArrayList<>();
+    private List<Song> songList = new ArrayList<>();
 
 
     @PostConstruct
-    private void init(){
-        SONG_LIST = loader.LoadData();
+    private void init() {
+        songList = loader.LoadData();
     }
 
 
     public List<Song> findAllSongs() {
-        return SONG_LIST;
+        return songList;
     }
 
-    
+
     public List<Song> findMatches(Integer playerOneStart,
                                   Integer playerOneEnd,
                                   Integer playerTwoStart,
-                                  Integer playerTwoEnd){
-        List<Song> sublist = SONG_LIST
-                .stream().filter(x-> x.getDifficulties().stream()
-                        .anyMatch(value-> value >= playerOneStart && value <= playerOneEnd)).collect(Collectors.toList());
-       sublist = sublist.stream().filter(x -> x.getDifficulties().stream()
+                                  Integer playerTwoEnd) {
+        List<Song> sublist = songList
+                .stream().filter(x -> x.getDifficulties().stream()
+                        .anyMatch(value -> value >= playerOneStart && value <= playerOneEnd)).collect(Collectors.toList());
+        sublist = sublist.stream().filter(x -> x.getDifficulties().stream()
                 .anyMatch(value -> value >= playerTwoStart && value <= playerTwoEnd)).collect(Collectors.toList());
-       return sublist;
+        return sublist;
     }
 
 
