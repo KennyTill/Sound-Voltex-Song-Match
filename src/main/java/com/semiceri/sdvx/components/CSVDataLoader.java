@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -41,7 +40,7 @@ public class CSVDataLoader implements DataLoader {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        
+
         return Collections.emptyList();
     }
 }
