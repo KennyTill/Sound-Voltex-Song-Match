@@ -2,6 +2,7 @@ package com.semiceri.sdvx.services;
 
 import com.semiceri.sdvx.components.DataLoader;
 import com.semiceri.sdvx.model.Song;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -10,25 +11,24 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class SongService {
 
-    DataLoader loader;
-    public SongService(DataLoader loader){
-        this.loader = loader;
-    }
+    private final DataLoader loader;
+    private  List<Song> SONG_LIST = new ArrayList<>();
+
 
     @PostConstruct
     private void init(){
         SONG_LIST = loader.LoadData();
     }
 
-    private  List<Song> SONG_LIST = new ArrayList<>();
-
 
     public List<Song> findAllSongs() {
         return SONG_LIST;
     }
 
+    
     public List<Song> findMatches(Integer playerOneStart,
                                   Integer playerOneEnd,
                                   Integer playerTwoStart,
