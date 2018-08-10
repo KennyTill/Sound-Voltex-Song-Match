@@ -9,9 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@Component
 @Primary
+@Component
 public class CSVDataLoader implements DataLoader {
+
+
     @Override
     public List<Song> loadData() {
         List<Song> loadedList = new ArrayList<>();
@@ -55,4 +57,5 @@ public class CSVDataLoader implements DataLoader {
 
         return loadedList;
     }
+    
 }
