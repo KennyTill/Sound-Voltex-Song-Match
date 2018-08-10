@@ -16,16 +16,14 @@ public class CSVDataLoader implements DataLoader {
 
     @Override
     public List<Song> loadData() {
+
         List<Song> loadedList = new ArrayList<>();
         String csv = "static/csv/songs.csv";
-
-        BufferedReader br = null;
         String line = "";
         String CSVSplitBy = ",";
         InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(csv);
 
-        try {
-            br = new BufferedReader(new InputStreamReader(inputStream));
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
 
             while ((line = br.readLine()) != null) {
                 String[] songString = line.split(CSVSplitBy);
@@ -36,26 +34,17 @@ public class CSVDataLoader implements DataLoader {
                 difficulties.add(Integer.parseInt(songString[4]));
                 Song song = new Song(songString[0], difficulties);
                 loadedList.add(song);
+                
             }
-
-
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {
             ex.printStackTrace();
         } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            if (br != null) {
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    //it's already closed prolly.
-                }
-            }
         }
 
         return loadedList;
     }
-    
+
 }
