@@ -5,5 +5,5 @@ import com.semiceri.sdvx.model.Song;
 import java.util.List;
 
 public interface DataLoader {
-    List<Song> LoadData();
+    List<Song> loadData();
 }

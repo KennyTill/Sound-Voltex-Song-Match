@@ -13,7 +13,7 @@ import java.util.List;
 @Primary
 public class CSVDataLoader implements DataLoader {
     @Override
-    public List<Song> LoadData() {
+    public List<Song> loadData() {
         List<Song> loadedList = new ArrayList<>();
         String csv = "static/csv/songs.csv";
 

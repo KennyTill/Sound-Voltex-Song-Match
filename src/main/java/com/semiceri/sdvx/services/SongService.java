@@ -22,7 +22,7 @@ public class SongService {
 
     @PostConstruct
     private void init() {
-        this.songList = loader.LoadData();
+        this.songList = loader.loadData();
     }
 
 
