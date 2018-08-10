@@ -2,6 +2,8 @@ package com.semiceri.sdvx.controllers;
 
 import com.semiceri.sdvx.model.Song;
 import com.semiceri.sdvx.services.SongService;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.util.MultiValueMap;
@@ -10,22 +12,22 @@ import java.util.List;
 
 
 @RestController
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class SongController {
 
-    private SongService songService;
-
-    @Autowired
-    public SongController(SongService songService){
-        this.songService = songService;
-    }
+    @NonNull
+    private final SongService songService;
 
 
     @GetMapping("/findMatches")
     public List<Song> findMatches(@RequestParam Integer playerOneStart,
-                              @RequestParam Integer playerOneEnd,
-                              @RequestParam Integer playerTwoStart,
-                              @RequestParam Integer playerTwoEnd) {
-        return songService.findMatches(playerOneStart, playerOneEnd, playerTwoStart, playerTwoEnd);
+                                  @RequestParam Integer playerOneEnd,
+                                  @RequestParam Integer playerTwoStart,
+                                  @RequestParam Integer playerTwoEnd) {
+
+        List<Song> returnList = songService.findMatches(playerOneStart, playerOneEnd, playerTwoStart, playerTwoEnd);
+        return returnList;
+
     }
 
 
