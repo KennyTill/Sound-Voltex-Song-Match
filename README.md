@@ -4,7 +4,7 @@
 SDVX Song Match is a simple lookup tool for the Japanese arcade game *Sound Voltex*.
 
 #### Where is it?
-The tool is currently hosted on AWS and can be found at (http://sdvx.info)
+The tool is currently hosted on AWS and can be found at [sdvx.info](http://sdvx.info)
 
 #### How does it work?
 The tool takes in two sets of values, commonly referred to as difficulties, for two players. It then intersects them to 
@@ -21,7 +21,7 @@ Sound Voltex 4 - Heavenly Haven (the one currently in arcades)
 #### The list of songs isn't complete!
 Konami, the creators of Sound Voltex, add and remove new songs all the time. If you can point me to a list of updated 
 songs and their difficulties that would be great. Alternatively, make a pull request on 
-(https://github.com/KennyTill/Sound-Voltex-Song-Match/blob/master/src/main/resources/static/csv/songs.csv "songs.csv") 
+[songs.csv](https://github.com/KennyTill/Sound-Voltex-Song-Match/blob/master/src/main/resources/static/csv/songs.csv) 
 and add it yourself. This will notify me and I can pull it in to a new build.
 
 #### Other thoughts
