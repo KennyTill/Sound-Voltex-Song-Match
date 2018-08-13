@@ -4,7 +4,6 @@ import com.semiceri.sdvx.components.DataLoader;
 import com.semiceri.sdvx.model.Song;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.util.Lists;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,8 +13,6 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class SongServiceTest {
