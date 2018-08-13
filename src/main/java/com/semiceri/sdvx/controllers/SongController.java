@@ -18,18 +18,6 @@ public class SongController {
     @NonNull
     private final SongService songService;
 
-
-    @GetMapping("/findMatches")
-    public List<Song> findMatches(@RequestParam Integer playerOneStart,
-                                  @RequestParam Integer playerOneEnd,
-                                  @RequestParam Integer playerTwoStart,
-                                  @RequestParam Integer playerTwoEnd) {
-
-        List<Song> returnList = songService.findMatches(playerOneStart, playerOneEnd, playerTwoStart, playerTwoEnd);
-        return returnList;
-    }
-
-
     @PostMapping(value = "/findMatches", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public List<Song> findMatches(@RequestBody MultiValueMap<String, String> body){
 
