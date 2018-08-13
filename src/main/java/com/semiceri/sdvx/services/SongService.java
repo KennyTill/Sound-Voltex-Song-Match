@@ -21,7 +21,7 @@ public class SongService {
 
 
     @PostConstruct
-    private void init() {
+    protected void init() {
         this.songList = loader.loadData();
     }
 
